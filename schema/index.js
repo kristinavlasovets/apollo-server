@@ -1,4 +1,6 @@
-export const typeDefs = `
+const { buildSchema } = require("graphql");
+
+const schema = buildSchema(`
   type Dog {
     image_link: String
     name: String
@@ -11,4 +13,6 @@ export const typeDefs = `
   type Query {
     getByBreed(name: String!): [Dog]
   }
-`;
+`);
+
+module.exports = schema;
